@@ -34,11 +34,11 @@ export default function RootLayout({
   return (
     <html
       lang="pt-br"
-      className={cn('h-full', 'antialiased', poppins.variable, roboto.variable)}
+      className={cn('antialiased', poppins.variable, roboto.variable)}
     >
-      <body className="flex min-h-full flex-col">
+      <body className="flex min-h-screen flex-col">
         <HeaderComponent />
-        {children}
+        <main className="flex-1">{children}</main>
         <FooterComponent />
       </body>
     </html>
