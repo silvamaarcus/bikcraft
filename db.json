@@ -1,0 +1,85 @@
+{
+  "bikes": [
+    {
+      "uuid": "4f7b6132-2d14-4b82-9653-a51b73cb3776",
+      "name": "Nimbus Stark",
+      "price": 4999.0,
+      "image_url": "./assets/img/bicycles/nimbus-stark.jpg",
+      "description": "A Nimbus Stark é a melhor Bikcraft já criada pela nossa equipe. Ela vem equipada com os melhores acessórios, o que garante maior velocidade.",
+      "in_stock": true,
+      "stock_quantity": 18,
+      "delivery_time_days": 5,
+      "specifications": {
+        "electric_motor": "Permite você viajar distâncias inimagináveis com a sua bike.",
+        "top_speed": "40 km/h",
+        "speed_details": "A mais rápida bicicleta elétrica disponível hoje no mercado.",
+        "tracker": "Rastreador e sistema anti-furto para garantir o seu sossego.",
+        "integrated_gps": true,
+        "material": "Fibra de Carbono",
+        "material_details": "Maior proteção possível para a sua Bikcraft com fibra de carbono."
+      },
+      "technical_sheet": {
+        "weight": "9 kg",
+        "height": "60 cm",
+        "width": "120 cm",
+        "depth": "10 cm",
+        "gears": 16,
+        "wheel_size": 29
+      }
+    },
+    {
+      "uuid": "9b12ca87-83b5-4f36-9e11-1da45701b342",
+      "name": "Magic Mist",
+      "price": 3499.0,
+      "image_url": "./assets/img/bicycles/magic-mist.jpg",
+      "description": "A Magic Mist combina o conforto clássico urbano com a potência de uma assistência elétrica suave, ideal para o dia a dia e deslocamentos rápidos.",
+      "in_stock": true,
+      "stock_quantity": 12,
+      "delivery_time_days": 3,
+      "specifications": {
+        "electric_motor": "Motor central ultra silencioso de 250W para pedaladas sem esforço.",
+        "top_speed": "32 km/h",
+        "speed_details": "Equilíbrio perfeito entre velocidade urbana e segurança regulamentada.",
+        "tracker": "Alarme de proximidade integrado com bloqueio remoto via app.",
+        "integrated_gps": true,
+        "material": "Alumínio Aeroespacial",
+        "material_details": "Estrutura leve e extremamente resistente à oxidação urbana."
+      },
+      "technical_sheet": {
+        "weight": "12 kg",
+        "height": "62 cm",
+        "width": "118 cm",
+        "depth": "12 cm",
+        "gears": 9,
+        "wheel_size": 28
+      }
+    },
+    {
+      "uuid": "13a5d7e8-e92b-4261-8cb4-22b647318a99",
+      "name": "Nebula Cosmic",
+      "price": 6299.0,
+      "image_url": "./assets/img/bicycles/nebula-cosmic.jpg",
+      "description": "Projetada para trilhas e terrenos desafiadores, a Nebula Cosmic é a nossa e-MTB topo de linha, feita para quem não conhece limites.",
+      "in_stock": true,
+      "stock_quantity": 5,
+      "delivery_time_days": 7,
+      "specifications": {
+        "electric_motor": "Motor de alto torque (85Nm) perfeito para subidas íngremes e lama.",
+        "top_speed": "45 km/h",
+        "speed_details": "Alta performance fora de estrada com entrega de potência instantânea.",
+        "tracker": "Mapeamento via satélite em tempo real e telemetria avançada de acidentes.",
+        "integrated_gps": true,
+        "material": "Titânio e Carbono",
+        "material_details": "Fusão de materiais para máxima absorção de impactos e durabilidade eterna."
+      },
+      "technical_sheet": {
+        "weight": "14 kg",
+        "height": "65 cm",
+        "width": "125 cm",
+        "depth": "15 cm",
+        "gears": 12,
+        "wheel_size": 29
+      }
+    }
+  ]
+}
