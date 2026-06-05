@@ -4,7 +4,7 @@ import Link from 'next/link';
 const FooterComponent = () => {
   return (
     <footer className="bg-foreground h-full w-full">
-      <div className="container my-8 grid grid-cols-1 gap-8 sm:grid-cols-12">
+      <div className="container mt-8 grid grid-cols-1 gap-8 sm:grid-cols-12">
         <div className="col-span-1 sm:col-span-3">
           <Link href="/">
             <Image
@@ -68,6 +68,11 @@ const FooterComponent = () => {
             </p>
           </div>
         </div>
+      </div>
+      <div className="container">
+        <p className="text-c5 py-4 text-sm">
+          © 2024 Bikcraft. Todos os direitos reservados.
+        </p>
       </div>
     </footer>
   );
