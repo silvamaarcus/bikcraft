@@ -3,6 +3,8 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Poppins, Roboto } from 'next/font/google';
 
+import { cn } from '@/lib/utils';
+
 const poppins = Poppins({
   subsets: ['latin-ext'],
   variable: '--font-poppins',
@@ -29,7 +31,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-br"
-      className={`${poppins.variable} ${roboto.variable} h-full antialiased`}
+      className={cn('h-full', 'antialiased', poppins.variable, roboto.variable)}
     >
       <body className="flex min-h-full flex-col">{children}</body>
     </html>
