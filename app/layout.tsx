@@ -3,7 +3,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Poppins, Roboto } from 'next/font/google';
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/app/_lib/utils';
 
 const poppins = Poppins({
   subsets: ['latin-ext'],
