@@ -5,6 +5,9 @@ import { Poppins, Roboto } from 'next/font/google';
 
 import { cn } from '@/app/_lib/utils';
 
+import FooterComponent from './_components/footer';
+import HeaderComponent from './_components/header';
+
 const poppins = Poppins({
   subsets: ['latin-ext'],
   variable: '--font-poppins',
@@ -33,7 +36,11 @@ export default function RootLayout({
       lang="pt-br"
       className={cn('h-full', 'antialiased', poppins.variable, roboto.variable)}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        <HeaderComponent />
+        {children}
+        <FooterComponent />
+      </body>
     </html>
   );
 }

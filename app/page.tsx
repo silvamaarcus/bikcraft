@@ -1,11 +1,7 @@
-import FooterComponent from './_components/footer';
-import HeaderComponent from './_components/header';
-
 const HomePage = () => {
   return (
     <>
-      <HeaderComponent />
-      <FooterComponent />
+      <h1>HomePage.tsx</h1>
     </>
   );
 };
