@@ -1,10 +1,10 @@
 {
   "bikes": [
     {
-      "uuid": "4f7b6132-2d14-4b82-9653-a51b73cb3776",
+      "id": "4f7b6132-2d14-4b82-9653-a51b73cb3776",
       "name": "Nimbus Stark",
       "price": 4999.0,
-      "image_url": "./assets/img/bicycles/nimbus-stark.jpg",
+      "image_url": "/assets/nimbus-stark.png",
       "description": "A Nimbus Stark é a melhor Bikcraft já criada pela nossa equipe. Ela vem equipada com os melhores acessórios, o que garante maior velocidade.",
       "in_stock": true,
       "stock_quantity": 18,
@@ -28,11 +28,11 @@
       }
     },
     {
-      "uuid": "9b12ca87-83b5-4f36-9e11-1da45701b342",
-      "name": "Magic Mist",
+      "id": "9b12ca87-83b5-4f36-9e11-1da45701b342",
+      "name": "Magic Might",
       "price": 3499.0,
-      "image_url": "./assets/img/bicycles/magic-mist.jpg",
-      "description": "A Magic Mist combina o conforto clássico urbano com a potência de uma assistência elétrica suave, ideal para o dia a dia e deslocamentos rápidos.",
+      "image_url": "/assets/magic-might.png",
+      "description": "A Magic Might combina o conforto clássico urbano com a potência de uma assistência elétrica suave, ideal para o dia a dia e deslocamentos rápidos.",
       "in_stock": true,
       "stock_quantity": 12,
       "delivery_time_days": 3,
@@ -55,10 +55,10 @@
       }
     },
     {
-      "uuid": "13a5d7e8-e92b-4261-8cb4-22b647318a99",
+      "id": "13a5d7e8-e92b-4261-8cb4-22b647318a99",
       "name": "Nebula Cosmic",
       "price": 6299.0,
-      "image_url": "./assets/img/bicycles/nebula-cosmic.jpg",
+      "image_url": "/assets/nebula-cosmic.png",
       "description": "Projetada para trilhas e terrenos desafiadores, a Nebula Cosmic é a nossa e-MTB topo de linha, feita para quem não conhece limites.",
       "in_stock": true,
       "stock_quantity": 5,

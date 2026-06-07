@@ -7,6 +7,7 @@ import { cn } from '@/app/_lib/utils';
 
 import FooterComponent from './_components/footer';
 import HeaderComponent from './_components/header';
+import TanstackProvider from './_providers/tanstack-provider';
 
 const poppins = Poppins({
   subsets: ['latin-ext'],
@@ -37,9 +38,11 @@ export default function RootLayout({
       className={cn('antialiased', poppins.variable, roboto.variable)}
     >
       <body className="flex min-h-screen flex-col">
-        <HeaderComponent />
-        <main className="flex-1">{children}</main>
-        <FooterComponent />
+        <TanstackProvider>
+          <HeaderComponent />
+          <main className="flex-1">{children}</main>
+          <FooterComponent />
+        </TanstackProvider>
       </body>
     </html>
   );
