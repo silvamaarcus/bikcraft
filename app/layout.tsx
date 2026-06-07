@@ -1,5 +1,6 @@
 import './globals.css';
 
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import type { Metadata } from 'next';
 import { Poppins, Roboto } from 'next/font/google';
 
@@ -42,6 +43,7 @@ export default function RootLayout({
           <HeaderComponent />
           <main className="flex-1">{children}</main>
           <FooterComponent />
+          <ReactQueryDevtools initialIsOpen={false} />
         </TanstackProvider>
       </body>
     </html>
