@@ -6,7 +6,7 @@ import HeaderButton from './ui/header-button';
 
 const HeaderComponent = () => {
   return (
-    <header className="bg-foreground h-24 w-full">
+    <header className="h-24 w-full bg-black">
       {/* DESKTOP */}
       <div className="container hidden items-center justify-between sm:flex">
         <Link href="/">
