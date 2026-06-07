@@ -1,9 +1,7 @@
+import SectionHero from './_components/section-hero';
+
 const HomePage = () => {
-  return (
-    <>
-      <h1>HomePage.tsx</h1>
-    </>
-  );
+  return <SectionHero />;
 };
 
 export default HomePage;
