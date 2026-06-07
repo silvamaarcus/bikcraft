@@ -71,7 +71,7 @@ const FooterComponent = () => {
       </div>
       <div className="container">
         <p className="text-c5 py-4 text-sm">
-          © 2024 Bikcraft. Todos os direitos reservados.
+          © 2026 Bikcraft. Todos os direitos reservados.
         </p>
       </div>
     </footer>
