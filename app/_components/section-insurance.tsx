@@ -5,7 +5,7 @@ import Title from './title';
 const SectionInsurance = () => {
   return (
     <section className="bg-foreground">
-      <div className="container mt-15 mb-30">
+      <div className="container pt-15 pb-30">
         <Title text="seguros" color="white" />
         <div className="my-15 flex items-center justify-center gap-8">
           <SectionInsuranceCard
