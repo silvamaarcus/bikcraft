@@ -1,3 +1,4 @@
+import SectionInsurance from '../_components/section-insurance';
 import SectionBikes from './_components/section-bikes';
 import SectionHero from './_components/section-hero';
 import SectionPartners from './_components/section-partners';
@@ -12,6 +13,7 @@ const HomePage = () => {
       <SectionTechs />
       <SectionPartners />
       <SectionTestimonials />
+      <SectionInsurance />
     </>
   );
 };
