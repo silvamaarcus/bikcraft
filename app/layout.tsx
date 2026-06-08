@@ -38,7 +38,7 @@ export default function RootLayout({
       lang="pt-br"
       className={cn('antialiased', poppins.variable, roboto.variable)}
     >
-      <body className="flex min-h-screen flex-col">
+      <body className="flex min-h-screen flex-col overflow-x-hidden">
         <TanstackProvider>
           <HeaderComponent />
           <main className="flex-1">{children}</main>
