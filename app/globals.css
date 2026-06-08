@@ -25,6 +25,7 @@
 
   --font-sans: var(--font-poppins);
   --font-mono: var(--font-roboto);
+  --font-serif: var(--font-merriweather);
 }
 
 @theme inline {

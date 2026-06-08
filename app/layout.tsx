@@ -2,7 +2,7 @@ import './globals.css';
 
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import type { Metadata } from 'next';
-import { Poppins, Roboto } from 'next/font/google';
+import { Merriweather, Poppins, Roboto } from 'next/font/google';
 
 import { cn } from '@/app/_lib/utils';
 
@@ -22,6 +22,12 @@ const roboto = Roboto({
   weight: ['400', '600', '700'],
 });
 
+const merriweather = Merriweather({
+  subsets: ['latin-ext'],
+  variable: '--font-merriweather',
+  weight: ['400', '700'],
+});
+
 export const metadata: Metadata = {
   title: 'Bikcraft',
   description:
@@ -36,7 +42,12 @@ export default function RootLayout({
   return (
     <html
       lang="pt-br"
-      className={cn('antialiased', poppins.variable, roboto.variable)}
+      className={cn(
+        'antialiased',
+        poppins.variable,
+        roboto.variable,
+        merriweather.variable,
+      )}
     >
       <body className="flex min-h-screen flex-col overflow-x-hidden">
         <TanstackProvider>
