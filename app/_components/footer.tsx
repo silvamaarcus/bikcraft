@@ -5,7 +5,7 @@ const FooterComponent = () => {
   return (
     <footer className="h-full w-full bg-black">
       <div className="container mt-8 grid grid-cols-1 gap-8 sm:grid-cols-12">
-        <div className="col-span-1 sm:col-span-3">
+        <div className="col-span-1 sm:col-span-2">
           <Link href="/">
             <Image
               src="/svg/bikcraft.svg"
@@ -15,7 +15,10 @@ const FooterComponent = () => {
             />
           </Link>
         </div>
-        <div className="col-span-1 sm:col-span-5">
+
+        <div className="col-span-1 sm:col-span-1"></div>
+
+        <div className="col-span-1 sm:col-span-4">
           <h1 className="font-mono text-2xl text-white uppercase">Contato</h1>
           <div className="text-c5 border-c5/10 mt-8 flex w-full flex-col gap-2 border-b pb-8 text-sm">
             <p>+55 21 9999-9999</p>
@@ -52,7 +55,10 @@ const FooterComponent = () => {
             </Link>
           </div>
         </div>
-        <div className="col-span-1 sm:col-span-4">
+
+        <div className="col-span-1 sm:col-span-1"></div>
+
+        <div className="col-span-1 sm:col-span-2">
           <h1 className="font-mono text-2xl text-white uppercase">
             Informações
           </h1>
@@ -68,6 +74,8 @@ const FooterComponent = () => {
             </p>
           </div>
         </div>
+
+        <div className="col-span-1 sm:col-span-2"></div>
       </div>
       <div className="container">
         <p className="text-c5 py-4 text-sm">
