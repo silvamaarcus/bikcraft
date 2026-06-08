@@ -9,6 +9,7 @@
       "in_stock": true,
       "stock_quantity": 18,
       "delivery_time_days": 5,
+      "gps": true,
       "specifications": {
         "electric_motor": "Permite você viajar distâncias inimagináveis com a sua bike.",
         "top_speed": "40 km/h",
@@ -36,6 +37,7 @@
       "in_stock": true,
       "stock_quantity": 12,
       "delivery_time_days": 3,
+      "gps": true,
       "specifications": {
         "electric_motor": "Motor central ultra silencioso de 250W para pedaladas sem esforço.",
         "top_speed": "32 km/h",
@@ -63,6 +65,7 @@
       "in_stock": true,
       "stock_quantity": 5,
       "delivery_time_days": 7,
+      "gps": true,
       "specifications": {
         "electric_motor": "Motor de alto torque (85Nm) perfeito para subidas íngremes e lama.",
         "top_speed": "45 km/h",

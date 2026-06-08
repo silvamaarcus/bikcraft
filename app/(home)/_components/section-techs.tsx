@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import Title from '@/app/_components/title';
+import TitleComponent from '@/app/_components/title';
 
 import SectionTechsCard from './section-techs-card';
 
@@ -13,8 +13,8 @@ const SectionTechs = () => {
             <p className="text-c5 mb-5 text-2xl uppercase">
               Tecnologia Avançada
             </p>
-            <Title
-              text="você escolhe as suas cores e componentes"
+            <TitleComponent
+              title="você escolhe as suas cores e componentes"
               color="white"
             />
             <p className="text-c5 mt-8 text-2xl">

@@ -1,12 +1,12 @@
 import Image from 'next/image';
 
-import Title from '@/app/_components/title';
+import TitleComponent from '@/app/_components/title';
 
 const SectionPartners = () => {
   return (
     <section className="my-30">
       <div className="container">
-        <Title text="nossos parceiros" color="black" />
+        <TitleComponent title="nossos parceiros" color="black" />
 
         <div className="my-25">
           {/* Primeira linha de parceiros */}

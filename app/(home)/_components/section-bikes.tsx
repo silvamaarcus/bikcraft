@@ -1,7 +1,7 @@
 'use client';
 
 import { useGetBikes } from '@/app/_api/_hooks/bikes';
-import Title from '@/app/_components/title';
+import TitleComponent from '@/app/_components/title';
 import { formatCurrency } from '@/app/_helpers/currency';
 
 import SectionBikesCard from './section-bikes-card';
@@ -12,7 +12,7 @@ const SectionBikes = () => {
   return (
     <section className="my-50">
       <div className="container">
-        <Title text="escolha a sua" color="black" />
+        <TitleComponent title="escolha a sua" color="black" />
       </div>
       <div className="mx-14 mt-10 flex items-center gap-8">
         {data?.[0].image_url ? (

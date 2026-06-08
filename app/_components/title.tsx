@@ -1,17 +1,26 @@
 interface TitleProps {
-  text: string;
+  subtitle?: string;
+  title: string;
   color?: 'white' | 'black';
 }
 
-const Title = ({ text, color = 'black' }: TitleProps) => {
+const TitleComponent = ({ subtitle, title, color = 'black' }: TitleProps) => {
   return (
-    <h1
-      className={`text-hero font-sans font-semibold ${color === 'black' ? 'text-black' : 'text-white'}`}
-    >
-      {text}
-      <span className="text-p1">.</span>
-    </h1>
+    <>
+      {subtitle && (
+        <p className="text-c5 mb-2 font-mono text-2xl font-medium uppercase">
+          {subtitle}
+        </p>
+      )}
+
+      <h1
+        className={`text-hero font-sans font-semibold ${color === 'black' ? 'text-black' : 'text-white'}`}
+      >
+        {title}
+        <span className="text-p1">.</span>
+      </h1>
+    </>
   );
 };
 
-export default Title;
+export default TitleComponent;

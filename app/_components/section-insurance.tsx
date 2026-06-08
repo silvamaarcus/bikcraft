@@ -1,12 +1,12 @@
 import SectionInsuranceCard from './section-insurance-card';
 import SectionInsuranceCardItem from './section-insurance-card-item';
-import Title from './title';
+import TitleComponent from './title';
 
 const SectionInsurance = () => {
   return (
     <section className="bg-foreground">
       <div className="container pt-15 pb-30">
-        <Title text="seguros" color="white" />
+        <TitleComponent title="seguros" color="white" />
         <div className="my-15 flex items-center justify-center gap-8">
           <SectionInsuranceCard
             price="199"
