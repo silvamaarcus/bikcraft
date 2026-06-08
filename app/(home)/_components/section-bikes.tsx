@@ -15,21 +15,33 @@ const SectionBikes = () => {
         <Title text="escolha a sua" color="black" />
       </div>
       <div className="mx-14 mt-10 flex items-center gap-8">
-        <SectionBikesCard
-          url={data?.[0].image_url}
-          name={data?.[0].name}
-          price={formatCurrency({ value: data?.[0].price })}
-        />
-        <SectionBikesCard
-          url={data?.[1].image_url}
-          name={data?.[1].name}
-          price={formatCurrency({ value: data?.[1].price })}
-        />
-        <SectionBikesCard
-          url={data?.[2].image_url}
-          name={data?.[2].name}
-          price={formatCurrency({ value: data?.[2].price })}
-        />
+        {data?.[0].image_url ? (
+          <SectionBikesCard
+            url={data?.[0].image_url}
+            name={data?.[0].name}
+            price={formatCurrency({ value: data?.[0].price })}
+          />
+        ) : (
+          <p>Imagem indisponivel</p>
+        )}
+        {data?.[1].image_url ? (
+          <SectionBikesCard
+            url={data?.[1].image_url}
+            name={data?.[1].name}
+            price={formatCurrency({ value: data?.[1].price })}
+          />
+        ) : (
+          <p>Imagem indisponivel</p>
+        )}
+        {data?.[2].image_url ? (
+          <SectionBikesCard
+            url={data?.[2].image_url}
+            name={data?.[2].name}
+            price={formatCurrency({ value: data?.[2].price })}
+          />
+        ) : (
+          <p>Imagem indisponivel</p>
+        )}
       </div>
     </section>
   );
