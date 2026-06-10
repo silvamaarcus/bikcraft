@@ -1,6 +1,6 @@
 interface TechnicalDetailsItemProps {
   name: string;
-  value: string;
+  value: string | number;
   border?: boolean;
 }
 

@@ -15,10 +15,7 @@ const TechnicalDetails = () => {
   const { data } = useGetBikeById(id as string);
   return (
     <div>
-      <p className="text-c5 font-mono text-2xl">
-        A Nimbus Stark é a melhor Bikcraft já criada pela nossa equipe. Ela vem
-        equipada com os melhores acessórios, o que garante maior velocidade.
-      </p>
+      <p className="text-c5 font-mono text-2xl">{data?.description}</p>
       <div className="mt-10 flex items-center gap-3">
         <Button>Comprar agora</Button>
         <div className="flex flex-col gap-1">
@@ -39,22 +36,22 @@ const TechnicalDetails = () => {
         <Card className="mt-3 grid grid-cols-2 gap-10 bg-black p-8">
           <TechsCard
             title="Motor elétrico"
-            description={data?.specifications.electric_motor}
+            description={data?.specifications.electric_motor || ''}
             iconPath="/svg/icon-eletrica.svg"
           />
           <TechsCard
-            title={data?.specifications.top_speed}
-            description={data?.specifications.electric_motor}
+            title={data?.specifications.top_speed || ''}
+            description={data?.specifications.electric_motor || ''}
             iconPath="/svg/icon-velocidade.svg"
           />
           <TechsCard
             title="Rastreador"
-            description={data?.specifications.tracker}
+            description={data?.specifications.tracker || ''}
             iconPath="/svg/icon-rastreador.svg"
           />
           <TechsCard
-            title={data?.specifications.material}
-            description={data?.specifications.material_details}
+            title={data?.specifications.material || ''}
+            description={data?.specifications.material_details || ''}
             iconPath="/svg/icon-carbono.svg"
           />
         </Card>
@@ -68,28 +65,28 @@ const TechnicalDetails = () => {
         <Card className="mt-3 flex flex-col space-y-1 bg-black p-8">
           <TechnicalDetailsItem
             name="Peso"
-            value={data?.technical_sheet.weight}
+            value={data?.technical_sheet.weight || ''}
           />
           <TechnicalDetailsItem
             name="Altura"
-            value={data?.technical_sheet.height}
+            value={data?.technical_sheet.height || ''}
           />
           <TechnicalDetailsItem
             name="Largura"
-            value={data?.technical_sheet.width}
+            value={data?.technical_sheet.width || ''}
           />
           <TechnicalDetailsItem
             name="Profunidade"
-            value={data?.technical_sheet.depth}
+            value={data?.technical_sheet.depth || ''}
           />
           <TechnicalDetailsItem
             name="Marchas"
-            value={data?.technical_sheet.gears}
+            value={data?.technical_sheet.gears || 0}
           />
 
           <TechnicalDetailsItem
             name="Roda"
-            value={data?.technical_sheet.wheel_size}
+            value={data?.technical_sheet.wheel_size || 0}
             border={false}
           />
         </Card>

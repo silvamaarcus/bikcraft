@@ -2,6 +2,8 @@
 
 import { useQuery } from '@tanstack/react-query';
 
+import { Bike } from '@/app/_types/bike';
+
 import { BikesService } from '../_services/bikes';
 
 export const useGetBikes = () => {
@@ -12,7 +14,7 @@ export const useGetBikes = () => {
 };
 
 export const useGetBikeById = (id: string) => {
-  return useQuery({
+  return useQuery<Bike>({
     queryKey: ['bikes', id],
     queryFn: async () => BikesService.getBike(id),
     enabled: !!id,

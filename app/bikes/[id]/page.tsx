@@ -14,13 +14,17 @@ const BikeDetailsPage = () => {
   const { id } = useParams();
   const { data } = useGetBikeById(id as string);
 
+  if (!data) {
+    return <div>Carregando...</div>;
+  }
+
   return (
     <>
       <section className="bg-foreground">
         <div className="container py-15">
           <TitleComponent
-            subtitle={data?.price ? formatCurrency({ value: data.price }) : ''}
-            title={data?.name}
+            subtitle={data.price ? formatCurrency({ value: data.price }) : ''}
+            title={data.name}
             color="white"
           />
 
@@ -28,23 +32,23 @@ const BikeDetailsPage = () => {
             {/* Imagens da bike */}
             <div>
               <Image
-                src={data?.image_url}
-                alt={data?.name}
+                src={data.image_url}
+                alt={data.name}
                 width={560}
                 height={440}
                 className="w-full rounded object-cover"
               />
               <div className="mt-5 flex w-full gap-5">
                 <Image
-                  src={data?.image_url}
-                  alt={data?.name}
+                  src={data.image_url}
+                  alt={data.name}
                   width={270}
                   height={212}
                   className="w-1/2 rounded"
                 />
                 <Image
-                  src={data?.image_url}
-                  alt={data?.name}
+                  src={data.image_url}
+                  alt={data.name}
                   width={270}
                   height={212}
                   className="w-1/2 rounded"
