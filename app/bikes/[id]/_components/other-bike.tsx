@@ -1,20 +1,20 @@
 import Image from 'next/image';
 
-interface SectionBikesCardProps {
+interface OtherBikeProps {
   url: string;
   name: string;
   price: string;
 }
 
-const SectionBikesCard = ({ url, name, price }: SectionBikesCardProps) => {
+const OtherBike = ({ url, name, price }: OtherBikeProps) => {
   return (
     <div className="h-150">
       <Image
         src={url}
-        width={450}
-        height={520}
+        width={560}
+        height={340}
         alt={name}
-        className="h-130 w-112.5 rounded-md object-cover"
+        className="h-85 w-140 rounded-md object-cover"
       />
 
       <div className="mt-4 flex flex-col gap-2">
@@ -30,4 +30,4 @@ const SectionBikesCard = ({ url, name, price }: SectionBikesCardProps) => {
   );
 };
 
-export default SectionBikesCard;
+export default OtherBike;
