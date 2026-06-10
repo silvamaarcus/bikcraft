@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import TitleComponent from '@/app/_components/title';
 
-import SectionTechsCard from './section-techs-card';
+import TechsCard from '../../_components/techs-card';
 
 const SectionTechs = () => {
   return (
@@ -27,12 +27,12 @@ const SectionTechs = () => {
               Escolha um modelo
             </h3>
             <div className="mt-10 flex items-center gap-8">
-              <SectionTechsCard
+              <TechsCard
                 iconPath="/svg/icon-eletrica.svg"
                 title="Motor Elétrico"
                 description="Toda Bikcraft é equipada com um motor elétrico que possui duração de até 120h. A bateria é recarregada com a sua energia gasta ao pedalar."
               />
-              <SectionTechsCard
+              <TechsCard
                 iconPath="/svg/icon-rastreador.svg"
                 title="Rastreador"
                 description="Sabemos o quão preciosa é a sua Bikcraft, por isso adicionamos rastreadores e sistemas anti-furto para garantir o seu sossego."

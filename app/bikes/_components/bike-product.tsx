@@ -1,5 +1,6 @@
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { Button } from '@/app/_components/ui/button';
 
@@ -7,13 +8,14 @@ interface BikeProductProps {
   wallpaper?: boolean;
   path: string;
   name: string;
-  price: number;
+  price: string;
   description: string;
   specifications: {
     material: string;
     topSpeed: string;
   };
   gps: boolean;
+  id: string;
 }
 
 const BikeProduct = ({
@@ -24,6 +26,7 @@ const BikeProduct = ({
   description,
   specifications,
   gps,
+  id,
 }: BikeProductProps) => {
   return (
     <div className="relative min-h-115">
@@ -92,10 +95,12 @@ const BikeProduct = ({
               {gps ? 'Rastreador' : 'Sem rastreador'}
 
               <div className="absolute right-20">
-                <Button size="lg" className="uppercase">
-                  Mais sobre
-                  <ArrowRight className="ml-2" size={16} />
-                </Button>
+                <Link href={`/bikes/${id}`}>
+                  <Button size="lg" className="uppercase">
+                    Mais sobre
+                    <ArrowRight className="ml-2" size={16} />
+                  </Button>
+                </Link>
               </div>
             </li>
           </ul>

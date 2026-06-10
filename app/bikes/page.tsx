@@ -1,7 +1,13 @@
+'use client';
+
+import { useGetBikes } from '../_api/_hooks/bikes';
 import TitleComponent from '../_components/title';
+import { formatCurrency } from '../_helpers/currency';
 import BikeProduct from './_components/bike-product';
 
 const BikesPage = () => {
+  const { data } = useGetBikes();
+
   return (
     <section>
       <div className="bg-foreground">
@@ -14,42 +20,56 @@ const BikesPage = () => {
         </div>
       </div>
       <div className="py-30">
-        <BikeProduct
-          name="Nimbus Stark"
-          description="A Magic Might é a melhor Bikcraft já criada pela nossa equipe. Ela vem equipada com os melhores acessórios, o que garante maior velocidade."
-          price={2999}
-          path="/assets/nimbus-stark.png"
-          gps={true}
-          specifications={{
-            material: 'Fibra de carbono',
-            topSpeed: '40 km/h',
-          }}
-        />
+        {data?.[0].image_url ? (
+          <BikeProduct
+            id={data?.[0].id}
+            name={data?.[0].name}
+            description={data?.[0].description}
+            path={data?.[0].image_url}
+            price={formatCurrency({ value: data?.[0].price })}
+            gps={data?.[0].gps}
+            specifications={{
+              material: data?.[0].specifications.material,
+              topSpeed: data?.[0].specifications.top_speed,
+            }}
+          />
+        ) : (
+          <p>Bike indisponivel</p>
+        )}
 
-        <BikeProduct
-          wallpaper
-          name="Nimbus Stark"
-          description="A Magic Might é a melhor Bikcraft já criada pela nossa equipe. Ela vem equipada com os melhores acessórios, o que garante maior velocidade."
-          price={2999}
-          path="/assets/nimbus-stark.png"
-          gps={true}
-          specifications={{
-            material: 'Fibra de carbono',
-            topSpeed: '40 km/h',
-          }}
-        />
+        {data?.[1].image_url ? (
+          <BikeProduct
+            id={data?.[1].id}
+            name={data?.[1].name}
+            description={data?.[1].description}
+            path={data?.[1].image_url}
+            price={formatCurrency({ value: data?.[1].price })}
+            gps={data?.[1].gps}
+            specifications={{
+              material: data?.[1].specifications.material,
+              topSpeed: data?.[1].specifications.top_speed,
+            }}
+          />
+        ) : (
+          <p>Bike indisponivel</p>
+        )}
 
-        <BikeProduct
-          name="Nimbus Stark"
-          description="A Magic Might é a melhor Bikcraft já criada pela nossa equipe. Ela vem equipada com os melhores acessórios, o que garante maior velocidade."
-          price={2999}
-          path="/assets/nimbus-stark.png"
-          gps={true}
-          specifications={{
-            material: 'Fibra de carbono',
-            topSpeed: '40 km/h',
-          }}
-        />
+        {data?.[2].image_url ? (
+          <BikeProduct
+            id={data?.[2].id}
+            name={data?.[2].name}
+            description={data?.[2].description}
+            path={data?.[2].image_url}
+            price={formatCurrency({ value: data?.[2].price })}
+            gps={data?.[2].gps}
+            specifications={{
+              material: data?.[2].specifications.material,
+              topSpeed: data?.[2].specifications.top_speed,
+            }}
+          />
+        ) : (
+          <p>Bike indisponivel</p>
+        )}
       </div>
     </section>
   );

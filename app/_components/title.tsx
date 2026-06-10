@@ -1,5 +1,5 @@
 interface TitleProps {
-  subtitle?: string;
+  subtitle?: string | number;
   title: string;
   color?: 'white' | 'black';
 }

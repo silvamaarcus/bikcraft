@@ -1,16 +1,12 @@
 import Image from 'next/image';
 
-interface SectionTechsCardProps {
+interface TechsCardProps {
   iconPath: string;
   title: string;
   description: string;
 }
 
-const SectionTechsCard = ({
-  iconPath,
-  title,
-  description,
-}: SectionTechsCardProps) => {
+const TechsCard = ({ iconPath, title, description }: TechsCardProps) => {
   return (
     <div className="flex flex-col gap-2">
       <Image width={24} height={24} src={iconPath} alt={title} />
@@ -20,4 +16,4 @@ const SectionTechsCard = ({
   );
 };
 
-export default SectionTechsCard;
+export default TechsCard;
