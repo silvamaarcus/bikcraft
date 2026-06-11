@@ -8,6 +8,7 @@ import TitleComponent from '@/app/_components/title';
 import { formatCurrency } from '@/app/_helpers/currency';
 
 import ChoiceBike from './_components/choice-bike';
+import InsuranceSell from './_components/insurance-sell';
 import TechnicalDetails from './_components/technical-details';
 
 const BikeDetailsPage = () => {
@@ -61,6 +62,7 @@ const BikeDetailsPage = () => {
         </div>
       </section>
       <ChoiceBike />
+      <InsuranceSell />
     </>
   );
 };

@@ -1,12 +1,12 @@
 import Image from 'next/image';
 
-interface OtherBikeProps {
+interface ChoiceBikeCardProps {
   url: string;
   name: string;
   price: string;
 }
 
-const OtherBike = ({ url, name, price }: OtherBikeProps) => {
+const ChoiceBikeCard = ({ url, name, price }: ChoiceBikeCardProps) => {
   return (
     <div className="h-150">
       <Image
@@ -30,4 +30,4 @@ const OtherBike = ({ url, name, price }: OtherBikeProps) => {
   );
 };
 
-export default OtherBike;
+export default ChoiceBikeCard;
