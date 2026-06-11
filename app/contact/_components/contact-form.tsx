@@ -2,6 +2,8 @@ import { Mail, MapPin, Phone } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import Form from '@/app/contact/_components/form';
+
 const ContactForm = () => {
   return (
     <section className="container">
@@ -56,7 +58,9 @@ const ContactForm = () => {
           </div>
         </div>
         {/* Formulário */}
-        <div className="col-span-7 bg-white p-15"></div>
+        <div className="col-span-7 bg-white p-15">
+          <Form />
+        </div>
       </div>
     </section>
   );
