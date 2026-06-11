@@ -4,6 +4,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import type { Metadata } from 'next';
 import { Merriweather, Poppins, Roboto } from 'next/font/google';
 
+import { Toaster } from '@/app/_components/ui/sonner';
 import { cn } from '@/app/_lib/utils';
 
 import FooterComponent from './_components/footer';
@@ -55,6 +56,7 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <FooterComponent />
           <ReactQueryDevtools initialIsOpen={false} />
+          <Toaster />
         </TanstackProvider>
       </body>
     </html>
