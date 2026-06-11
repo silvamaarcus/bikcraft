@@ -71,7 +71,7 @@
 }
 
 :root {
-  --background: #ffffff; /* branco */
+  --background: #f7f7f7; /* branco */
   --foreground: #111111; /* c11 */
   --card: #ffffff;
   --card-foreground: #111111;
