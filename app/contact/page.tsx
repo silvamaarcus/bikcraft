@@ -1,5 +1,5 @@
 import TitleComponent from '../_components/title';
-import ContactForm from './_components/contact-form';
+import ContactAction from './_components/contact-action';
 import StoreLocaleCard from './_components/store-locale-card';
 
 const ContactPage = () => {
@@ -15,7 +15,7 @@ const ContactPage = () => {
         </div>
         <div className="relative">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            <ContactForm />
+            <ContactAction />
           </div>
         </div>
       </div>
