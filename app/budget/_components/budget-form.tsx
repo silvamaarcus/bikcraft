@@ -1,316 +1,256 @@
 'use client';
-import Image from 'next/image';
-import { useState } from 'react';
 
-import { useGetBikes } from '@/app/_api/_hooks/bikes';
+import { zodResolver } from '@hookform/resolvers/zod';
+import Link from 'next/link';
+import * as React from 'react';
+import { Controller, useForm, useWatch } from 'react-hook-form';
+import { toast } from 'sonner';
+import * as z from 'zod';
+
+import { useGetAddress } from '@/app/_api/_hooks/cep';
+import { Checkbox } from '@/app/_components/ui/checkbox';
+import { Label } from '@/app/_components/ui/label';
+import { BudgetActionSchema } from '@/app/_forms/schemas';
+
+import { Button } from '../../_components/ui/button';
 import {
   Field,
-  FieldContent,
-  FieldDescription,
+  FieldError,
+  FieldGroup,
   FieldLabel,
-  FieldTitle,
-} from '@/app/_components/ui/field';
-import { RadioGroup, RadioGroupItem } from '@/app/_components/ui/radio-group';
-import { formatCurrency } from '@/app/_helpers/currency';
-import Form from '@/app/contact/_components/form';
-
-import LabelBudgetForm from './label-budget-form';
-import LabelTechItem from './label-tech-item';
+} from '../../_components/ui/field';
+import { Input } from '../../_components/ui/input';
 
 const BudgetForm = () => {
-  const [optionChoice, setOptionChoice] = useState('');
-  const [bikeChoice, setBikeChoice] = useState('');
-  const [insuranceChoice, setInsuranceChoice] = useState('');
+  const form = useForm<z.infer<typeof BudgetActionSchema>>({
+    resolver: zodResolver(BudgetActionSchema),
+    defaultValues: {
+      name: '',
+      lastName: '',
+      cpf: '',
+      email: '',
+      cep: '',
+      terms: false,
+    },
+  });
 
-  const { data } = useGetBikes();
+  function onSubmit(data: z.infer<typeof BudgetActionSchema>) {
+    toast('You submitted the following values:', {
+      description: (
+        <pre className="bg-code text-code-foreground mt-2 w-[320px] overflow-x-auto rounded-md p-4">
+          <code>{JSON.stringify(data, null, 2)}</code>
+        </pre>
+      ),
+      position: 'bottom-right',
+      classNames: {
+        content: 'flex flex-col gap-2',
+      },
+      style: {
+        '--border-radius': 'calc(var(--radius)  + 4px)',
+      } as React.CSSProperties,
+    });
+  }
+
+  const cep = useWatch({
+    control: form.control,
+    name: 'cep',
+  });
+
+  const { data, isLoading } = useGetAddress(cep);
 
   return (
-    <section className="container">
-      <div className="grid h-144 max-h-144 w-290 max-w-290 grid-cols-12">
-        {/* Tipo e Seguro */}
-        <div className="col-span-6 bg-black p-15">
-          <div>
-            <LabelBudgetForm title="Bikcraft ou seguro?" />
-
-            <RadioGroup
-              value={optionChoice}
-              onValueChange={setOptionChoice}
-              className="mt-5 flex gap-5"
-            >
-              <FieldLabel
-                htmlFor="bikcraft-plan"
-                className={`${optionChoice === 'bikcraft' ? 'text-11 bg-white!' : 'bg-c9 text-c4'}`}
-              >
-                <Field orientation="horizontal">
-                  <RadioGroupItem value="bikcraft" id="bikcraft-plan" />
-                  <FieldContent>
-                    <FieldTitle>Bikcraft</FieldTitle>
-                  </FieldContent>
+    <>
+      <form id="form-budget" onSubmit={form.handleSubmit(onSubmit)}>
+        <FieldGroup>
+          <div className="flex items-center gap-5">
+            {/* Nome */}
+            <Controller
+              name="name"
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel htmlFor="form-name">Nome</FieldLabel>
+                  <Input
+                    {...field}
+                    id="form-rhf-demo-name"
+                    aria-invalid={fieldState.invalid}
+                    placeholder="Seu nome"
+                    autoComplete="off"
+                  />
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
                 </Field>
-              </FieldLabel>
-
-              <FieldLabel
-                htmlFor="insurance-plan"
-                className={`${optionChoice === 'insurance' ? 'text-11 bg-white!' : 'bg-c9 text-c4'}`}
-              >
-                <Field orientation="horizontal">
-                  <RadioGroupItem value="insurance" id="insurance-plan" />
-                  <FieldContent>
-                    <FieldTitle>Seguro</FieldTitle>
-                  </FieldContent>
+              )}
+            />
+            {/* Sobrenome */}
+            <Controller
+              name="lastName"
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel htmlFor="form-last-name">Sobrenome</FieldLabel>
+                  <Input
+                    {...field}
+                    id="form-last-name"
+                    aria-invalid={fieldState.invalid}
+                    placeholder="Seu sobrenome"
+                    autoComplete="off"
+                  />
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
                 </Field>
-              </FieldLabel>
-            </RadioGroup>
+              )}
+            />
           </div>
-
-          <div className="mt-8">
-            {optionChoice === 'bikcraft' && (
-              <>
-                <LabelBudgetForm title="Escolha a sua:" />
-
-                <RadioGroup
-                  value={bikeChoice}
-                  onValueChange={setBikeChoice}
-                  className="mt-5 flex-col space-y-5"
-                >
-                  <FieldLabel
-                    htmlFor="bike-choice"
-                    className={`${bikeChoice === 'nimbus' ? 'text-11 bg-white!' : 'bg-c9 text-c4'}`}
-                  >
-                    <Field orientation="vertical">
-                      <FieldContent>
-                        <FieldTitle className="flex w-full items-center justify-between">
-                          <div className="flex items-center gap-2">
-                            <RadioGroupItem
-                              value="nimbus"
-                              id="bikcraft-nimbus"
-                            />
-                            {data?.[0].name || ''}
-                          </div>
-                          {bikeChoice === 'nimbus' && (
-                            <span className="text-black">
-                              {formatCurrency({ value: data?.[0].price || 0 })}
-                            </span>
-                          )}
-                        </FieldTitle>
-
-                        {bikeChoice === 'nimbus' && (
-                          <FieldDescription className="flex justify-between gap-2 py-5">
-                            <div className="flex flex-col space-y-2">
-                              <LabelTechItem
-                                iconPath="/svg/icon-eletrica.svg"
-                                title="Motor elétrico"
-                              />
-                              <LabelTechItem
-                                iconPath="/svg/icon-carbono.svg"
-                                title={data?.[0].specifications.material || ''}
-                              />
-                              <LabelTechItem
-                                iconPath="/svg/icon-velocidade.svg"
-                                title={data?.[0].specifications.top_speed || ''}
-                              />
-                              <LabelTechItem
-                                iconPath="/svg/icon-rastreador.svg"
-                                title={
-                                  data?.[0].specifications.integrated_gps ===
-                                  true
-                                    ? 'Rastreador'
-                                    : 'Sem rastreio'
-                                }
-                              />
-                            </div>
-                            <Image
-                              width={140}
-                              height={88}
-                              src={data?.[0].image_url || ''}
-                              alt={data?.[0].name || ''}
-                              className="rounded object-cover"
-                            />
-                          </FieldDescription>
-                        )}
-                      </FieldContent>
-                    </Field>
-                  </FieldLabel>
-
-                  <FieldLabel
-                    htmlFor="insurance-plan"
-                    className={`${bikeChoice === 'magic' ? 'text-11 bg-white!' : 'bg-c9 text-c4'}`}
-                  >
-                    <Field orientation="vertical">
-                      <FieldContent>
-                        <FieldTitle className="flex w-full items-center justify-between">
-                          <div className="flex items-center gap-2">
-                            <RadioGroupItem value="magic" id="bikcraft-magic" />
-                            {data?.[1].name || ''}
-                          </div>
-                          {bikeChoice === 'magic' && (
-                            <span className="text-black">
-                              {formatCurrency({ value: data?.[1].price || 0 })}
-                            </span>
-                          )}
-                        </FieldTitle>
-                        {bikeChoice === 'magic' && (
-                          <FieldDescription className="flex justify-between gap-2 py-5">
-                            <div className="flex flex-col space-y-2">
-                              <LabelTechItem
-                                iconPath="/svg/icon-eletrica.svg"
-                                title="Motor elétrico"
-                              />
-                              <LabelTechItem
-                                iconPath="/svg/icon-carbono.svg"
-                                title={data?.[1].specifications.material || ''}
-                              />
-                              <LabelTechItem
-                                iconPath="/svg/icon-velocidade.svg"
-                                title={data?.[1].specifications.top_speed || ''}
-                              />
-                              <LabelTechItem
-                                iconPath="/svg/icon-rastreador.svg"
-                                title={
-                                  data?.[1].specifications.integrated_gps ===
-                                  true
-                                    ? 'Rastreador'
-                                    : 'Sem rastreio'
-                                }
-                              />
-                            </div>
-                            <Image
-                              width={140}
-                              height={88}
-                              src={data?.[1].image_url || ''}
-                              alt={data?.[1].name || ''}
-                              className="rounded object-cover"
-                            />
-                          </FieldDescription>
-                        )}
-                      </FieldContent>
-                    </Field>
-                  </FieldLabel>
-
-                  <FieldLabel
-                    htmlFor="insurance-plan"
-                    className={`${bikeChoice === 'nebula' ? 'text-11 bg-white!' : 'bg-c9 text-c4'}`}
-                  >
-                    <Field orientation="vertical">
-                      <FieldContent>
-                        <FieldTitle className="flex w-full items-center justify-between">
-                          <div className="flex items-center gap-2">
-                            <RadioGroupItem
-                              value="nebula"
-                              id="bikcraft-nebula"
-                            />
-                            {data?.[2].name || ''}
-                          </div>
-                          {bikeChoice === 'nebula' && (
-                            <span className="text-black">
-                              {formatCurrency({ value: data?.[2].price || 0 })}
-                            </span>
-                          )}
-                        </FieldTitle>
-                        {bikeChoice === 'nebula' && (
-                          <FieldDescription className="flex justify-between gap-2 py-5">
-                            <div className="flex flex-col space-y-2">
-                              <LabelTechItem
-                                iconPath="/svg/icon-eletrica.svg"
-                                title="Motor elétrico"
-                              />
-                              <LabelTechItem
-                                iconPath="/svg/icon-carbono.svg"
-                                title={data?.[2].specifications.material || ''}
-                              />
-                              <LabelTechItem
-                                iconPath="/svg/icon-velocidade.svg"
-                                title={data?.[2].specifications.top_speed || ''}
-                              />
-                              <LabelTechItem
-                                iconPath="/svg/icon-rastreador.svg"
-                                title={
-                                  data?.[2].specifications.integrated_gps ===
-                                  true
-                                    ? 'Rastreador'
-                                    : 'Sem rastreio'
-                                }
-                              />
-                            </div>
-                            <Image
-                              width={140}
-                              height={88}
-                              src={data?.[2].image_url || ''}
-                              alt={data?.[2].name || ''}
-                              className="rounded object-cover"
-                            />
-                          </FieldDescription>
-                        )}
-                      </FieldContent>
-                    </Field>
-                  </FieldLabel>
-                </RadioGroup>
-              </>
+          {/* CPF */}
+          <Controller
+            name="cpf"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid}>
+                <FieldLabel htmlFor="form-cpf">CPF</FieldLabel>
+                <Input
+                  {...field}
+                  id="form-cpf"
+                  aria-invalid={fieldState.invalid}
+                  placeholder="000.000.000-00"
+                  autoComplete="off"
+                  maxLength={14}
+                />
+                {fieldState.invalid && (
+                  <FieldError errors={[fieldState.error]} />
+                )}
+              </Field>
             )}
-
-            {optionChoice === 'insurance' && (
-              <>
-                <LabelBudgetForm title="Escolha o plano:" />
-
-                <RadioGroup
-                  value={insuranceChoice}
-                  onValueChange={setInsuranceChoice}
-                  className="mt-5 flex-col space-y-5"
-                >
-                  <FieldLabel
-                    htmlFor="silver-choice"
-                    className={`${insuranceChoice === 'silver' ? 'text-11 bg-white!' : 'bg-c9 text-c4'}`}
-                  >
-                    <Field orientation="vertical">
-                      <FieldContent>
-                        <FieldTitle className="flex w-full items-center justify-between">
-                          <div className="flex items-center gap-2">
-                            <RadioGroupItem
-                              value="silver"
-                              id="insurance-silver"
-                            />
-                            Prata
-                          </div>
-
-                          <span>{formatCurrency({ value: 199 })}</span>
-                        </FieldTitle>
-                      </FieldContent>
-                    </Field>
-                  </FieldLabel>
-
-                  <FieldLabel
-                    htmlFor="gold-choice"
-                    className={`${insuranceChoice === 'gold' ? 'text-11 bg-white!' : 'bg-c9 text-c4'}`}
-                  >
-                    <Field orientation="vertical">
-                      <FieldContent>
-                        <FieldTitle className="flex w-full items-center justify-between">
-                          <div className="flex items-center gap-2">
-                            <RadioGroupItem
-                              value="gold"
-                              id="insurance-silver"
-                            />
-                            Gold
-                          </div>
-
-                          <span>{formatCurrency({ value: 299 })}</span>
-                        </FieldTitle>
-                      </FieldContent>
-                    </Field>
-                  </FieldLabel>
-                </RadioGroup>
-              </>
+          />
+          {/* Email */}
+          <Controller
+            name="email"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Field data-invalid={fieldState.invalid}>
+                <FieldLabel htmlFor="form-email">Email</FieldLabel>
+                <Input
+                  {...field}
+                  id="form-email"
+                  aria-invalid={fieldState.invalid}
+                  placeholder="contato@email.com"
+                  autoComplete="off"
+                />
+                {fieldState.invalid && (
+                  <FieldError errors={[fieldState.error]} />
+                )}
+              </Field>
             )}
+          />
+
+          <div className="grid grid-cols-2 gap-5">
+            {/* CEP */}
+            <Controller
+              name="cep"
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel htmlFor="form-cep">CEP</FieldLabel>
+                  <Input
+                    {...field}
+                    id="form-cep"
+                    aria-invalid={fieldState.invalid}
+                    autoComplete="off"
+                    disabled={isLoading}
+                  />
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
+                </Field>
+              )}
+            />
+            {/* Número */}
+            <Field>
+              <FieldLabel htmlFor="form-cep-number">Número</FieldLabel>
+              <Input
+                id="form-cep-number"
+                autoComplete="off"
+                value={data?.unidade}
+              />
+            </Field>
+
+            {/* Logradouro */}
+            <Field>
+              <FieldLabel htmlFor="form-cep-street">Logradouro</FieldLabel>
+              <Input
+                id="form-cep-street"
+                autoComplete="off"
+                value={data?.logradouro}
+              />
+            </Field>
+            {/* Bairro */}
+            <Field>
+              <FieldLabel htmlFor="form-cep-neighborhood">Bairro</FieldLabel>
+              <Input
+                id="form-cep-neighborhood"
+                autoComplete="off"
+                value={data?.bairro}
+              />
+            </Field>
+            {/* Cidade */}
+            <Field>
+              <FieldLabel htmlFor="form-cep-city">Cidade</FieldLabel>
+              <Input
+                id="form-cep-city"
+                autoComplete="off"
+                value={data?.localidade}
+              />
+            </Field>
+            {/* Estado */}
+            <Field>
+              <FieldLabel htmlFor="form-cep-state">Estado</FieldLabel>
+              <Input id="form-cep-state" autoComplete="off" value={data?.uf} />
+            </Field>
           </div>
-        </div>
+          {/* Termos e Condições */}
+          <Controller
+            name="terms"
+            control={form.control}
+            render={({ field, fieldState }) => (
+              <Field orientation="vertical">
+                <div className="flex items-center gap-2">
+                  <Checkbox
+                    id="terms-checkbox"
+                    name="terms-checkbox"
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                  />
+                  <Label htmlFor="terms-checkbox">
+                    Li e aceito os{' '}
+                    <Link
+                      href="/terms"
+                      className="underline underline-offset-4"
+                    >
+                      termos e condições.
+                    </Link>
+                  </Label>
+                </div>
+                {fieldState.invalid && (
+                  <FieldError errors={[fieldState.error]} />
+                )}
+              </Field>
+            )}
+          />
+        </FieldGroup>
+      </form>
 
-        {/* Formulário */}
-        <div className="col-span-6 bg-white p-15">
-          <Form />
-        </div>
-      </div>
-    </section>
+      <Field orientation="horizontal" className="mt-5">
+        <Button type="button" variant="outline" onClick={() => form.reset()}>
+          Resetar
+        </Button>
+        <Button type="submit" form="form-budget">
+          Solicitar orçamento
+        </Button>
+      </Field>
+    </>
   );
 };
-
 export default BudgetForm;

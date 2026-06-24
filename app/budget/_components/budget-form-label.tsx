@@ -1,8 +1,8 @@
-interface LabelBudgetFormProps {
+interface LabelBudgetActionProps {
   title: string;
 }
 
-const LabelBudgetForm = ({ title }: LabelBudgetFormProps) => {
+const LabelBudgetAction = ({ title }: LabelBudgetActionProps) => {
   return (
     <div className="flex items-center gap-2">
       <span className="bg-p1 h-2 w-1"></span>
@@ -11,4 +11,4 @@ const LabelBudgetForm = ({ title }: LabelBudgetFormProps) => {
   );
 };
 
-export default LabelBudgetForm;
+export default LabelBudgetAction;

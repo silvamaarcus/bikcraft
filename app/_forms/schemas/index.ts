@@ -30,4 +30,13 @@ export const BudgetActionSchema = ContactActionSchema.extend({
     .trim()
     .min(2, { message: 'O sobrenome deve conter pelo menos 2 caracteres' }),
   cpf: zCpf(),
+  cep: z
+    .string()
+    .transform((val) => val.replace(/\D/g, ''))
+    .refine((val) => val.length === 8, {
+      message: 'O CEP deve conter exatamente 8 números.',
+    }),
+  terms: z.boolean().refine((value) => value === true, {
+    message: 'Você deve aceitar os termos de uso e políticas de privacidade',
+  }),
 });
