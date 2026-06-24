@@ -133,7 +133,7 @@ const BudgetAction = () => {
                   </FieldLabel>
 
                   <FieldLabel
-                    htmlFor="insurance-plan"
+                    htmlFor="bike-choice"
                     className={`${bikeChoice === 'magic' ? 'text-11 bg-white!' : 'bg-c9 text-c4'}`}
                   >
                     <Field orientation="vertical">
@@ -188,7 +188,7 @@ const BudgetAction = () => {
                   </FieldLabel>
 
                   <FieldLabel
-                    htmlFor="insurance-plan"
+                    htmlFor="bike-choice"
                     className={`${bikeChoice === 'nebula' ? 'text-11 bg-white!' : 'bg-c9 text-c4'}`}
                   >
                     <Field orientation="vertical">
