@@ -9,7 +9,7 @@ const InsuranceSell = () => {
       <div className="app-container py-15">
         <div className="grid grid-cols-2">
           <div className="relative">
-            <div className="absolute top-2/12 left-0 my-30 h-189 w-170 -translate-y-1/2">
+            <div className="absolute -top-2/12 -left-6/12 my-30 h-full w-full translate-x-1/2 -translate-y-1/2">
               <Image
                 width={680}
                 height={756}
@@ -18,7 +18,7 @@ const InsuranceSell = () => {
               />
             </div>
           </div>
-          <div className="flex flex-col">
+          <div className="ml-8 flex flex-col">
             <h1 className="text-hero max-w-lg font-sans font-semibold text-white">
               Pedale mais tranquilo com o nosso{' '}
               <span className="text-p1">seguro.</span>
