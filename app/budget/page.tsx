@@ -4,7 +4,7 @@ import BudgetAction from './_components/budget-action';
 const BudgetPage = () => {
   return (
     <section>
-      <div className="bg-foreground w-full">
+      <div className="bg-foreground mb-150 w-full">
         <div className="container pt-15 pb-96">
           <TitleComponent
             title="solicite um orçamento"
