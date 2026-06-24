@@ -2,7 +2,7 @@
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
-import * as React from 'react';
+import { useState } from 'react';
 import { Controller, useForm, useWatch } from 'react-hook-form';
 import { toast } from 'sonner';
 import * as z from 'zod';
@@ -11,6 +11,7 @@ import { useGetAddress } from '@/app/_api/_hooks/cep';
 import { Checkbox } from '@/app/_components/ui/checkbox';
 import { Label } from '@/app/_components/ui/label';
 import { BudgetActionSchema } from '@/app/_forms/schemas';
+import { maskCPF } from '@/app/_utils';
 
 import { Button } from '../../_components/ui/button';
 import {
@@ -22,6 +23,8 @@ import {
 import { Input } from '../../_components/ui/input';
 
 const BudgetForm = () => {
+  const [inputCpf, setInputCpf] = useState('');
+
   const form = useForm<z.infer<typeof BudgetActionSchema>>({
     resolver: zodResolver(BudgetActionSchema),
     defaultValues: {
@@ -113,6 +116,8 @@ const BudgetForm = () => {
                 <FieldLabel htmlFor="form-cpf">CPF</FieldLabel>
                 <Input
                   {...field}
+                  value={inputCpf}
+                  onChange={(e) => setInputCpf(maskCPF(e.target.value))}
                   id="form-cpf"
                   aria-invalid={fieldState.invalid}
                   placeholder="000.000.000-00"

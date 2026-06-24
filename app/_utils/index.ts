@@ -3,7 +3,7 @@
  * @param {string} value - O valor de entrada que será formatado como CPF.
  * @returns {string} Retorna o valor formatado como CPF no formato "000.000.000-00".
  */
-const maskCPF = (value: string) => {
+export const maskCPF = (value: string) => {
   const cleanedValue = value.replace(/\D/g, ''); // Remove os caracteres não numéricos
   const match = cleanedValue.match(/^(\d{0,3})(\d{0,3})(\d{0,3})(\d{0,2})$/); // Expressão regular para capturar os grupos de dígitos
 
@@ -27,29 +27,3 @@ const maskCPF = (value: string) => {
 
   return maskedValue;
 };
-
-/**
- * @description Função para aplicar a máscara de CEP em uma string.
- * @param {string} value - O valor de entrada que será formatado como CEP.
- * @returns {string} Retorna o valor formatado como CEP no formato "00000-000".
- */
-const maskCEP = (value: string) => {
-  const cleanedValue = value.replace(/\D/g, ''); // Remove os caracteres não numéricos
-  const match = cleanedValue.match(/^(\d{0,5})(\d{0,3})$/); // Expressão regular para capturar os grupos de dígitos
-
-  if (!match) {
-    return '';
-  }
-
-  let maskedValue = '';
-  if (match[1]) {
-    maskedValue += match[1];
-  }
-  if (match[2]) {
-    maskedValue += '-' + match[2];
-  }
-
-  return maskedValue;
-};
-
-export { maskCEP, maskCPF };

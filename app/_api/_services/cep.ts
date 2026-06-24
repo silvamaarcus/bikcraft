@@ -3,12 +3,11 @@ import { ZipCode } from '@/app/_types/cep';
 
 export const ZipCodeServices = {
   /**
-   * Busca
-   * @param cep - CEP a ser consultado, com ou sem formatação.
-   * @returns Uma Promise contendo os dados do endereço encontrado.
+   * Busca o endereço correspondente a um determinado CEP utilizando a API do ViaCEP.
+   * @param {string} cep - O CEP a ser pesquisado.
+   * @returns {Promise<ZipCode>} Uma Promise que resolve para um objeto ZipCode contendo as informações do endereço.
    * @example const endereco = await ZipCodeServices.address('30140071');
-   * console.log(endereco.logradouro);
-   *
+   * console.log(endereco.logradouro);   *
    */
   address: async (cep: string): Promise<ZipCode> => {
     const cleanCep = cep.replace(/\D/g, '');
