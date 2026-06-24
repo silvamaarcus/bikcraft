@@ -22,7 +22,7 @@ const BikeDetailsPage = () => {
   return (
     <>
       <section className="bg-foreground">
-        <div className="container py-15">
+        <div className="app-container py-15">
           <TitleComponent
             subtitle={data.price ? formatCurrency({ value: data.price }) : ''}
             title={data.name}

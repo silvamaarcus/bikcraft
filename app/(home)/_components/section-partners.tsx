@@ -5,7 +5,7 @@ import TitleComponent from '@/app/_components/title';
 const SectionPartners = () => {
   return (
     <section className="my-30">
-      <div className="container">
+      <div className="app-container">
         <TitleComponent title="nossos parceiros" color="black" />
 
         <div className="my-25">

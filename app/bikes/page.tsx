@@ -11,7 +11,7 @@ const BikesPage = () => {
   return (
     <section>
       <div className="bg-foreground">
-        <div className="container py-15">
+        <div className="app-container py-15">
           <TitleComponent
             subtitle="Escolha a melhor para você"
             title="nossas bicicletas"
@@ -49,6 +49,7 @@ const BikesPage = () => {
               material: data?.[1].specifications.material,
               topSpeed: data?.[1].specifications.top_speed,
             }}
+            wallpaper
           />
         ) : (
           <p>Bike indisponivel</p>

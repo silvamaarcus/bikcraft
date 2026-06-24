@@ -17,7 +17,7 @@ const ChoiceBike = () => {
 
   return (
     <section>
-      <div className="container pt-23 pb-30">
+      <div className="app-container pt-23 pb-30">
         <TitleComponent title="escolha a sua" />
 
         <div className="mt-10 grid grid-cols-2 gap-10">

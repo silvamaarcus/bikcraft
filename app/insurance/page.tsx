@@ -8,7 +8,7 @@ const InsurancePage = () => {
   return (
     <section>
       <div className="bg-foreground">
-        <div className="container py-15">
+        <div className="app-container py-15">
           <TitleComponent
             subtitle="escolha o seguro"
             title="você seguro"
@@ -45,7 +45,7 @@ const InsurancePage = () => {
         </div>
       </div>
       <div className="bg-black">
-        <div className="container py-15">
+        <div className="app-container py-15">
           <TitleComponent title="nossas vantagens" color="white" />
           <div className="my-23 grid grid-cols-3 gap-10">
             <TechsCard
@@ -82,7 +82,7 @@ const InsurancePage = () => {
         </div>
       </div>
       <div>
-        <div className="container py-15">
+        <div className="app-container py-15">
           <TitleComponent title="perguntas frequentes" color="black" />
 
           <div className="mt-22">

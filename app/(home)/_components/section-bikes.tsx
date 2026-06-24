@@ -11,7 +11,7 @@ const SectionBikes = () => {
 
   return (
     <section className="my-50">
-      <div className="container">
+      <div className="app-container">
         <TitleComponent title="escolha a sua" color="black" />
       </div>
       <div className="mx-14 mt-10 flex items-center gap-8">

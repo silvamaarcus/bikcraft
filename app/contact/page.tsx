@@ -6,7 +6,7 @@ const ContactPage = () => {
   return (
     <section>
       <div className="bg-foreground w-full">
-        <div className="container pt-15 pb-96">
+        <div className="app-container pt-15 pb-96">
           <TitleComponent
             title="nosso contato"
             color="white"
@@ -20,7 +20,7 @@ const ContactPage = () => {
         </div>
       </div>
       <div className="w-full">
-        <div className="container pt-96">
+        <div className="app-container pt-96">
           <TitleComponent title="lojas locais" color="black" />
           <div className="my-15 grid grid-cols-2">
             <StoreLocaleCard

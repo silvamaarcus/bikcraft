@@ -7,7 +7,7 @@ import TechsCard from '../../_components/techs-card';
 const SectionTechs = () => {
   return (
     <section className="bg-foreground relative h-240 min-h-240 w-full">
-      <div className="container grid h-full grid-cols-1 items-center justify-center gap-8 sm:grid-cols-12">
+      <div className="app-container grid h-full grid-cols-1 items-center justify-center gap-8 sm:grid-cols-12">
         <div className="col-span-6">
           <div className="max-w-2xl px-4">
             <p className="text-c5 mb-5 text-2xl uppercase">

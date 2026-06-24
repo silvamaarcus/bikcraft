@@ -25,7 +25,7 @@ const BudgetAction = () => {
   const { data } = useGetBikes();
 
   return (
-    <section className="container">
+    <section className="app-container">
       <div className="grid h-144 max-h-144 w-290 max-w-290 grid-cols-12">
         {/* Tipo e Seguro */}
         <div className="col-span-6 bg-black p-15">

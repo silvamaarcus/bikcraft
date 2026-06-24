@@ -15,7 +15,7 @@ const TermItemTitle = ({ children }: TermItemTitleProps) => {
 };
 
 const TermItemParagraph = ({ children }: TermItemParagraphProps) => {
-  return <p className="mt-2 max-w-200 font-mono text-lg">{children}</p>;
+  return <p className="mt-2 font-mono text-lg">{children}</p>;
 };
 
 const TermItem = ({ children }: TermItemProps) => {

@@ -5,7 +5,7 @@ const BudgetPage = () => {
   return (
     <section>
       <div className="bg-foreground mb-150 w-full">
-        <div className="container pt-15 pb-96">
+        <div className="app-container pt-15 pb-96">
           <TitleComponent
             title="solicite um orçamento"
             color="white"

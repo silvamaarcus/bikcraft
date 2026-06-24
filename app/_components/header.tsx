@@ -8,7 +8,7 @@ const HeaderComponent = () => {
   return (
     <header className="h-24 w-full bg-black">
       {/* DESKTOP */}
-      <div className="container hidden items-center justify-between sm:flex">
+      <div className="app-container hidden items-center justify-between sm:flex">
         <Link href="/">
           <Image
             src="/svg/bikcraft.svg"
@@ -25,7 +25,7 @@ const HeaderComponent = () => {
         </nav>
       </div>
       {/* MOBILE */}
-      <div className="container flex items-center justify-between text-white sm:hidden">
+      <div className="app-container flex items-center justify-between text-white sm:hidden">
         <Link href="/">
           <Image
             src="/svg/bikcraft.svg"

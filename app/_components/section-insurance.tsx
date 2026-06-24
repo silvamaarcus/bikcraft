@@ -5,7 +5,7 @@ import TitleComponent from './title';
 const SectionInsurance = () => {
   return (
     <section className="bg-foreground">
-      <div className="container pt-15 pb-30">
+      <div className="app-container pt-15 pb-30">
         <TitleComponent title="seguros" color="white" />
         <div className="my-15 flex items-center justify-center gap-8">
           <SectionInsuranceCard

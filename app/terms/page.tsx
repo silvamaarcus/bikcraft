@@ -9,7 +9,7 @@ const TermsPage = () => {
   return (
     <section>
       <div className="bg-foreground">
-        <div className="container py-15">
+        <div className="app-container py-15">
           <TitleComponent
             subtitle="Termos de uso"
             title="termos e condições"
@@ -18,7 +18,7 @@ const TermsPage = () => {
         </div>
       </div>
       <div>
-        <div className="container flex flex-col space-y-12 py-30">
+        <div className="app-container flex flex-col space-y-12 py-30">
           <TermItem>
             <TermItemTitle>1. Política de Estorno</TermItemTitle>
             <TermItemParagraph>

@@ -30,7 +30,7 @@ const BikeProduct = ({
 }: BikeProductProps) => {
   return (
     <div className="relative min-h-115">
-      <div className="container grid grid-cols-2 gap-8">
+      <div className="app-container grid grid-cols-2 gap-8">
         <div className="relative flex items-center justify-center">
           <Image
             width={560}

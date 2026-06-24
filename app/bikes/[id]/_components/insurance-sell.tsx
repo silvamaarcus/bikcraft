@@ -6,7 +6,7 @@ import { Button } from '@/app/_components/ui/button';
 const InsuranceSell = () => {
   return (
     <section className="bg-foreground">
-      <div className="container py-15">
+      <div className="app-container py-15">
         <div className="grid grid-cols-2">
           <div className="relative">
             <div className="absolute top-2/12 left-0 my-30 h-189 w-170 -translate-y-1/2">

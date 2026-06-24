@@ -7,7 +7,7 @@ import { Button } from '@/app/_components/ui/button';
 const SectionHero = () => {
   return (
     <section className="mb-50 h-170 min-h-170 w-full bg-black">
-      <div className="container grid h-full grid-cols-1 items-center justify-center gap-8 sm:grid-cols-12">
+      <div className="app-container grid h-full grid-cols-1 items-center justify-center gap-8 sm:grid-cols-12">
         <div className="col-span-6">
           <div className="max-w-2xl px-4">
             <TitleComponent
